@@ -1,5 +1,4 @@
-Kudos to [bhancockio](https://github.com/bhancockio/agent-development-kit-crash-course)
-[Course](https://www.youtube.com/watch?v=P4VFL9nIaIA)
+Kudos to [bhancockio's Course](https://www.youtube.com/watch?v=P4VFL9nIaIA)
 
 # Agent Development Kit (ADK) Crash Course
 
