@@ -1,4 +1,5 @@
 import uuid
+import os
 
 from dotenv import load_dotenv
 from google.adk.runners import Runner
@@ -8,23 +9,23 @@ from question_answering_agent import question_answering_agent
 
 load_dotenv()
 
-
 # Create a new session service to store state
+# InMemorySessionService is a simple in-memory session service that stores sessions in memory.
+# It is not recommended for production use.
 session_service_stateful = InMemorySessionService()
 
 initial_state = {
-    "user_name": "Brandon Hancock",
+    "user_name": "Gabriel Luque",
     "user_preferences": """
-        I like to play Pickleball, Disc Golf, and Tennis.
-        My favorite food is Mexican.
-        My favorite TV show is Game of Thrones.
-        Loves it when people like and subscribe to his YouTube channel.
+        I like to play Basketball, Tennis, and Soccer.
+        My favorite food is Mexican and Italian.
+        My favorite movie is The Dark Knight.
     """,
 }
 
 # Create a NEW session
-APP_NAME = "Brandon Bot"
-USER_ID = "brandon_hancock"
+APP_NAME = "Gabriel Bot"
+USER_ID = "gabriel_luque"
 SESSION_ID = str(uuid.uuid4())
 stateful_session = session_service_stateful.create_session(
     app_name=APP_NAME,
@@ -42,7 +43,7 @@ runner = Runner(
 )
 
 new_message = types.Content(
-    role="user", parts=[types.Part(text="What is Brandon's favorite TV show?")]
+    role="user", parts=[types.Part(text="What is Gabriel's favorite movie?")]
 )
 
 for event in runner.run(
